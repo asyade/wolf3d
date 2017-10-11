@@ -27,11 +27,10 @@ void	text_fillLine(t_render *r, t_ray *ray, int z)
 	t_texture	*text;
 	int			y_text;
 
-	if (ray->obj - 1 < TEXT_COUNT && ray->obj > 0)
-		text = texture_set()[ray->obj - 1];
+	if (ray->obj < TEXT_COUNT && ray->obj >= 0)
+		text = texture_set()[ray->obj];
 	else
 		text = texture_set()[0];
-	(void)z;
 	h = ray->screen_dist / ray->dist;
 	limits.x = SCREEN_CY - (h >> 1);
 	limits.y = limits.x + h;

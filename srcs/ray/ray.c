@@ -75,7 +75,7 @@ int		ray_trace(t_ray *ray, t_map *map)
 		if ((obj = mapCheckCollid(map, ray->rounded.x, ray->rounded.y)))
 			return (obj);
 	}
-	return (-1);
+	return (0);
 }
 
 void	ray_dist(t_ray *ray)
@@ -110,6 +110,7 @@ void	ray_traceall(t_render *r, t_cam *cam, t_map *map)
 	ray.origin.y = (int)cam->pos.y;
 	ray.screen_dist = cam->screen_dist;
 	x = -1;
+	render_clear(r);
 	while (++x < SCREEN_WIDTH)
 	{
 		ray.cam_x = ray_postable()[x];
@@ -119,7 +120,7 @@ void	ray_traceall(t_render *r, t_cam *cam, t_map *map)
 		ray_delta(&ray);
 		point2d_quadrant(&ray.quadrant, &ray.dir);
 		ray_quadrant(&ray);
-		if ((ray.obj = ray_trace(&ray, map)))
+		if ((ray.obj = ray_trace(&ray, map)) != 0)
 		{
 			ray_dist(&ray);
 			cam->lineDist[x] = ray.dist;

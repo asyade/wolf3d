@@ -15,16 +15,8 @@ static void	mapDataAlloc(t_map *map)
 
 static int	get_flag(char c)
 {
-	static int	types[T_COUNT + 1] = 
-	{
-		T_WALL,
-		2
-	};
-
 	c = c - 'a';
-	if (c < 0 || c >= T_COUNT)
-		return (0)
-	return (types[(int)c]);
+	return (c);
 }
 
 t_map		*mapParse(t_map_file *file)

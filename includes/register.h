@@ -21,11 +21,11 @@
 # define	SHADOW_LEVEL	1
 # define	SHADOW_START	1
 
-# define	TEXT_COUNT		1
+# define	TEXT_COUNT		2
 # define	TEXT_DEFAULT	0
 
-# define	TEXT_PATH_1		"tex1.ppm"
-# define	TEXT_PATH_2		"tex2.ppm"
+# define	TEXT_PATH_1		"text1.ppm"
+# define	TEXT_PATH_2		"text2.ppm"
 
 /*
 **	Collid directions

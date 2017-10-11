@@ -3,9 +3,17 @@
 
 static t_texture	*text_cancel(t_texture *text)
 {
+	static t_texture		def = {
+		1,
+		1,
+		NULL,
+		NULL,
+		{ 0x00ff0000 },
+		1
+	};
 	free(text->data);
 	free(text);
-	return (NULL);
+	return (&def);
 }
 
 t_texture	*text_convert(t_texture *t)
